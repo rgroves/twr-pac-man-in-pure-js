@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pacDotEaten();
     powerPelletEaten();
     checkGameOver();
+    checkForWin();
   }
 
   document.addEventListener("keyup", movePacman);
@@ -247,6 +248,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ghosts.forEach((ghost) => clearInterval(ghost.timerId));
       document.removeEventListener("keyup", movePacman);
       scoreDisplay.innerHTML = `${score}<br>GAME OVER`;
+    }
+  }
+
+  // check for a win
+  function checkForWin() {
+    if (score === 274) {
+      ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+      document.removeEventListener("keyup", movePacman);
+      scoreDisplay.innerHTML = `${score}<br>YOU WIN!`;
     }
   }
 });
