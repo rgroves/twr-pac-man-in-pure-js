@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // ArrowLeft
         if (
           pacmanCurrentIndex % width !== 0 &&
-          !squares[pacmanCurrentIndex - 1].classList.contains("wall")
+          !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
         )
           pacmanCurrentIndex -= 1;
         break;
@@ -91,7 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // ArrowUp
         if (
           pacmanCurrentIndex - width >= 0 &&
-          !squares[pacmanCurrentIndex - width].classList.contains("wall")
+          !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
         )
           pacmanCurrentIndex -= width;
         break;
@@ -100,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // ArrowRight
         if (
           pacmanCurrentIndex % width < width - 1 &&
-          !squares[pacmanCurrentIndex + 1].classList.contains("wall")
+          !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
         )
           pacmanCurrentIndex += 1;
         break;
@@ -109,7 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // ArrowDown
         if (
           pacmanCurrentIndex + width < width * width &&
-          !squares[pacmanCurrentIndex + width].classList.contains("wall")
+          !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
         )
           pacmanCurrentIndex += width;
         break;
