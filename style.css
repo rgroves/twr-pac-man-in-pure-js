@@ -1,0 +1,14 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  /*
+  ** Note on width/height value:
+  **  560px -> 28 x 28 grid -> 20px x 20px cells
+  **  Grid will be 28 cells by 28 cells
+  **  Cells will be 20px by 20px
+  **  So, 28 cells x 20px = 560px
+  */
+  width: 560px;
+  height: 560px;
+  border: solid black;
+}
