@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     squares[pacmanCurrentIndex].classList.add("pac-man");
 
     pacDotEaten();
+    powerPelletEaten();
   }
 
   document.addEventListener("keyup", movePacman);
@@ -146,6 +147,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // what happens when you eat a power-pellet
+  function powerPelletEaten() {
+    if (squares[pacmanCurrentIndex].classList.contains("power-pellet")) {
+      score += 10;
+      ghosts.forEach((ghost) => (ghost.isScared = true));
+      setTimeout(unScareGhosts, 10000);
+      squares[pacmanCurrentIndex].classList.remove("power-pellet");
+    }
+  }
+
+  // make the ghosts stop appearing as aquamarine
+  function unScareGhosts() {
+    ghosts.forEach((ghost) => (ghost.isScared = false));
+  }
+
   // create our Ghost template
   class Ghost {
     constructor(className, startIndex, speed) {
@@ -154,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.speed = speed;
       this.currentIndex = startIndex;
       this.timerId = NaN;
+      this.isScared = false;
     }
   }
 
@@ -198,6 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         // else find a new direction to try
         direction = directions[Math.floor(Math.random() * directions.length)];
+      }
+
+      if (ghost.isScared) {
+        squares[ghost.currentIndex].classList.add("scared-ghost");
       }
     }, ghost.speed);
   }
