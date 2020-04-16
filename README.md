@@ -1,4 +1,4 @@
-# twr-pac-man-in-pure-js
+# PACMAN in vanilla JavaScript, HTML and CSS
 This is another Tutorial Walkthorugh Repo. I create these repos (starting with twr-*) when I follow along with a tutorial.
 
 This repo is for the follow along of Ania Kubów's [Build PACMAN in vanilla JavaScript, HTML and CSS - Walkthrough!](https://www.youtube.com/watch?v=CeUGlSl2i4Q)
