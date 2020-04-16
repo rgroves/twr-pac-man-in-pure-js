@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   const scoreDisplay = document.getElementById("score");
@@ -71,4 +72,51 @@ document.addEventListener("DOMContentLoaded", () => {
   let pacmanCurrentIndex = 490;
 
   squares[pacmanCurrentIndex].classList.add("pac-man");
+
+  // move pac-man
+  function movePacman(e) {
+    squares[pacmanCurrentIndex].classList.remove("pac-man");
+
+    switch (e.keyCode) {
+      case 37:
+        // ArrowLeft
+        if (
+          pacmanCurrentIndex % width !== 0 &&
+          !squares[pacmanCurrentIndex - 1].classList.contains("wall")
+        )
+          pacmanCurrentIndex -= 1;
+        break;
+
+      case 38:
+        // ArrowUp
+        if (
+          pacmanCurrentIndex - width >= 0 &&
+          !squares[pacmanCurrentIndex - width].classList.contains("wall")
+        )
+          pacmanCurrentIndex -= width;
+        break;
+
+      case 39:
+        // ArrowRight
+        if (
+          pacmanCurrentIndex % width < width - 1 &&
+          !squares[pacmanCurrentIndex + 1].classList.contains("wall")
+        )
+          pacmanCurrentIndex += 1;
+        break;
+
+      case 40:
+        // ArrowDown
+        if (
+          pacmanCurrentIndex + width < width * width &&
+          !squares[pacmanCurrentIndex + width].classList.contains("wall")
+        )
+          pacmanCurrentIndex += width;
+        break;
+    }
+
+    squares[pacmanCurrentIndex].classList.add("pac-man");
+  }
+
+  document.addEventListener("keyup", movePacman);
 });
