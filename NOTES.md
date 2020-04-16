@@ -1,6 +1,6 @@
 Here's a list of the tweaks/additions I can think about making to this project:
 
-- [ ] Update usage of KeyboardEvent.keyCode to use KeyboardEvent.code instead.
+- [x] Update usage of KeyboardEvent.keyCode to use KeyboardEvent.code instead.
   - References:
     - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
     - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code

@@ -78,9 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function movePacman(e) {
     squares[pacmanCurrentIndex].classList.remove("pac-man");
 
-    switch (e.keyCode) {
-      case 37:
-        // ArrowLeft
+    switch (e.code) {
+      case "ArrowLeft":
         if (
           pacmanCurrentIndex % width !== 0 &&
           !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
@@ -94,8 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         break;
 
-      case 38:
-        // ArrowUp
+      case "ArrowUp":
         if (
           pacmanCurrentIndex - width >= 0 &&
           !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
@@ -104,8 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pacmanCurrentIndex -= width;
         break;
 
-      case 39:
-        // ArrowRight
+      case "ArrowRight":
         if (
           pacmanCurrentIndex % width < width - 1 &&
           !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
@@ -119,8 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         break;
 
-      case 40:
-        // ArrowDown
+      case "ArrowDown":
         if (
           pacmanCurrentIndex + width < width * width &&
           !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
