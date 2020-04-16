@@ -9,3 +9,4 @@ Here's a list of the tweaks/additions I can think about making to this project:
 - [ ] Fix ghost eats PAC-MAN game over condition
   - Currently only when PAC-MAN moves into a ghost does the game end.
 - [ ] Keep PAC-MAN moving like the joystick version
+- [ ] Give the ghosts more of a ghost look
