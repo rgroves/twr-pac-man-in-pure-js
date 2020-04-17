@@ -17,4 +17,4 @@ Here's a list of the tweaks/additions I can think about making to this project:
 - [x] Give the ghosts more of a ghost look
 - [ ] Remove hardcoded indices for warp areas
 - [ ] Give ghosts eyes that look in the direction it is heading
-- [ ] Need to fix PAC-MAN walking into ghost allows pass-through; does not trigger score & respawn of ghost.
+- [ ] Need to fix PAC-MAN walking into a scared ghost allows pass-through; does not trigger score & respawn of ghost.
