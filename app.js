@@ -231,6 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         score += 100;
         squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
+      } else {
+        checkGameOver();
       }
     }, ghost.speed);
   }

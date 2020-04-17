@@ -11,7 +11,7 @@ Here's a list of the tweaks/additions I can think about making to this project:
   - [ ] Give ghosts a way to know that they should move out of the lair when in it
   - [ ] Once a ghost is out of the lair it should not move back into it on it's own (only respawn gets it back in)
   - [ ] Eliminate standing around: narrow a ghost's move options to only those cells that are valid open spaces
-- [ ] Fix ghost eats PAC-MAN game over condition
+- [x] Fix ghost eats PAC-MAN game over condition
   - Currently only when PAC-MAN moves into a ghost does the game end.
 - [ ] Keep PAC-MAN moving like the joystick version
 - [x] Give the ghosts more of a ghost look
