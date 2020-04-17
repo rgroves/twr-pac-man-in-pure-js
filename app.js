@@ -181,16 +181,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // write the function to move the ghosts
   function moveGhost(ghost) {
-    const directions = [-1, +1, width, -width];
-    let direction = directions[Math.floor(Math.random() * directions.length)];
+    const directionOptions = [-1, +1, width, -width];
+
+    // for each direction option, see if it is a valid "open" space to move and
+    // add it to the list of possible directions
+    function getDirection(direction) {
+      const avoidDirection = direction * -1;
+      let possibleDirections = [];
+
+      directionOptions.forEach((direction) => {
+        // if the next square your ghost is going to go in does NOT contain a wall and a ghost, you can go there
+        const isValidMoveOption = ["wall", "ghost"].every(
+          (className) =>
+            !squares[ghost.currentIndex + direction].classList.contains(
+              className
+            )
+        );
+
+        if (isValidMoveOption) {
+          possibleDirections.push(direction);
+        }
+      });
+
+      if (possibleDirections.length > 1) {
+        possibleDirections = possibleDirections.filter(
+          (direction) => direction != avoidDirection
+        );
+      }
+
+      let newDirection = 0;
+
+      if (possibleDirections.length > 0) {
+        let randomDirectionIndex = Math.floor(
+          Math.random() * possibleDirections.length
+        );
+        newDirection = possibleDirections[randomDirectionIndex];
+      }
+
+      return newDirection;
+    }
+
+    let direction = getDirection();
 
     ghost.timerId = setInterval(function () {
-      // if the next square your ghost is going to go in does NOT contain a wall and a ghost, you can go there
       if (
         !squares[ghost.currentIndex + direction].classList.contains("wall") &&
         !squares[ghost.currentIndex + direction].classList.contains("ghost")
       ) {
-        // you can go here
         // remove all ghost related classes
         squares[ghost.currentIndex].classList.remove(
           ghost.className,
@@ -207,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
       } else {
         // else find a new direction to try
-        direction = directions[Math.floor(Math.random() * directions.length)];
+        direction = getDirection(direction);
       }
 
       if (ghost.isScared) {
