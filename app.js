@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.currentIndex = startIndex;
       this.timerId = NaN;
       this.isScared = false;
+      this.inLair = undefined;
     }
   }
 
@@ -171,6 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ghosts.forEach((ghost) => {
     squares[ghost.currentIndex].classList.add(ghost.className);
     squares[ghost.currentIndex].classList.add("ghost");
+    // set if is ghost in lair
+    ghost.inLair = squares[ghost.currentIndex].classList.contains("ghost-lair");
   });
 
   // move the ghosts randomly
@@ -196,6 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         // change the currentIndex to the new safe square
         ghost.currentIndex += direction;
+        // set if is ghost in lair
+        ghost.inLair = squares[ghost.currentIndex].classList.contains(
+          "ghost-lair"
+        );
         // redraw the ghost in the new safe space
         squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
       } else {
@@ -216,7 +223,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "ghost",
           "scared-ghost"
         );
+
         ghost.currentIndex = ghost.startIndex;
+        // set if is ghost in lair
+        ghost.inLair = squares[ghost.currentIndex].classList.contains(
+          "ghost-lair"
+        );
         score += 100;
         squares[ghost.currentIndex].classList.add(ghost.className, "ghost");
       }
