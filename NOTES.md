@@ -7,7 +7,7 @@ Here's a list of the tweaks/additions I can think about making to this project:
 - [x] Simplify PAC-MAN movement logic
 - [ ] Give ghosts a +1 to INT (increase their smarts just a bit for now)
   - Make ghosts just a little bit smarter (for now):
-  - [ ] Give ghosts a way to know if they are still in the lair
+  - [x] Give ghosts a way to know if they are still in the lair
   - [ ] Give ghosts a way to know that they should move out of the lair when in it
   - [ ] Once a ghost is out of the lair it should not move back into it on it's own (only respawn gets it back in)
   - [ ] Eliminate standing around: narrow a ghost's move options to only those cells that are valid open spaces
