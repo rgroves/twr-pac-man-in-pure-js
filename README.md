@@ -10,4 +10,4 @@ The [original-tutorial-code branch](https://github.com/rgroves/twr-pac-man-in-pu
 
 The other branches I will be adding will be little tweaks/improvements to the tutorial code. I will merge those into the master branch as I complete each improvement/addition so that the live hosted version linked above will have those included.
 
-I'm keeping a list of notes for additions here: [NOTES.md](NOTES.MD)
+I'm keeping a list of notes for additions here: [NOTES.md](NOTES.md)
