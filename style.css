@@ -38,24 +38,40 @@
   border-radius: 10px;
 }
 
+.ghost {
+  border: 0;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px dashed white;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ghost::before {
+  content: "@ @";
+  font-size: 7px;
+  color: blue;
+  position: absolute;
+  top: 5px;
+  left: 2px;
+}
+
 .blinky {
   background-color: red;
-  border: 0px;
 }
+
 .pinky {
   background-color: pink;
-  border: 0px;
 }
+
 .inky {
   background-color: cyan;
-  border: 0px;
 }
+
 .clyde {
   background-color: orange;
-  border: 0px;
 }
 
 .scared-ghost {
   background-color: aquamarine;
-  border: 0px;
 }
